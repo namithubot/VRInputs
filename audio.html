@@ -1,16 +1,12 @@
 <html>
 <head>
+<script src="artyom.window.min.js"></script>
 </head>
 <body>
 	<script>
-		var rec = new webkitSpeechRecognition();
-		rec.start();	
-		rec.onresult = function(e){
-			var last = e.results.length - 1;
-			var word = e.results[last][0];
-			document.write(word.transcript)
-		}
-	</script>
+		var Jarvis = new Artyom();
+		Jarvis.say("hello world");
+	</script>	
 </body>
 </html>
 
