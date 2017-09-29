@@ -4,8 +4,15 @@
 </head>
 <body>
 	<script>
-		var Jarvis = new Artyom();
-		Jarvis.say("hello world");
+			const artyom = new Artyom();
+			var commandsToBeAdded = [
+				{
+					indexes:["something *", "some *"],
+					action: function(i, wildcard){
+						console.log(wildcard)	
+					}	
+				}
+			]
 	</script>	
 </body>
 </html>
