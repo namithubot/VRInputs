@@ -1,36 +1,8 @@
 <html>
 <head>
-<script src="artyom.window.min.js"></script>
 </head>
 <body>
-	<script>
-			const artyom = new Artyom();
-			var commandsToBeAdded = [
-				{
-					indexes:["something *", "some *"],
-					action: function(i, wildcard){
-						console.log(wildcard)	
-					}	
-				}
-			]
-			artyom.addCommands(commandsToBeAdded)
-artyom.initialize({
-    lang: "en-GB", // GreatBritain english
-    continuous: true, // Listen forever
-    soundex: true,// Use the soundex algorithm to increase accuracy
-    debug: true, // Show messages in the console
-    executionKeyword: "and do it now",
-    listen: true, // Start to listen commands !
-
-    // If providen, you can only trigger a command if you say its name
-    // e.g to trigger Good Morning, you need to say "Jarvis Good Morning"
-    //name: "Jarvis" 
-}).then(() => {
-    console.log("Artyom has been succesfully initialized");
-}).catch((err) => {
-    console.error("Artyom couldn't be initialized: ", err);
-});
-	</script>	
+	<input type="file" accept="audio/*;capture=microphone">
 </body>
 </html>
 
