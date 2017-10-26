@@ -1,21 +1,7 @@
-    function listen(){
-                var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-                var rec = new SpeechRecognition();
-		        rec.start();	
-		        rec.addEventListener('result', function(e){
-                var last = e.results.length - 1;
-                var word = e.results[last][0];
-                var varName = questions[index]["variable"];
-			    answers[index] = { varName : word.transcript };
-                //console.log(word.transcript)
-                document.getElementById("answer").setAttribute('value', word.transcript);
-                })
-    }
-
           var index = 0;
            questions = [
                 {
-                    "question" : "Instruction: Stand inside the ring, use green and red boxes for navigation. Speak your answers and confirm it once appeared"
+                    "question" : "<b>Instruction</b>: Stand inside the ring, use green and red boxes for navigation. Speak your answers and confirm it once appeared"
                 },
                 {
                     "variable" : "name",
@@ -24,9 +10,29 @@
                 {
                     "variable" : "age",
                     "question" : "What is your age?"
+                },
+                {
+                    "variable" : "sex",
+                    "type"  : "radio",
+                    "question" : "What's your sex?"
                 }
             ]
-            answers = []
+            answers = {}
+            function listen(){
+                var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+                var rec = new SpeechRecognition();
+		        rec.start();	
+		        rec.addEventListener('result', function(e){
+                var last = e.results.length - 1;
+                var word = e.results[last][0];
+                // console.log(index);
+                console.log(questions[index].variable);
+			    answers[questions[index].variable] = word.transcript ;
+                //console.log(word.transcript)
+                document.getElementById("answer").setAttribute('value', word.transcript);
+                })
+    }
+
         // document.addEventListener("keypress", function(e){
         //     if(e.key=="k" && index<2){
         //         index =index + 1

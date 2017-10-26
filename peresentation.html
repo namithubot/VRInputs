@@ -4,8 +4,14 @@
     </head>
     <body>
         <a-scene>
-            <a-text slide
+            <a-entity id='cameraWrapper' position="0 0 0">
+                <a-camera></a-camera>
+            </a-entity>
+            <a-sky src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mercury_-_complete_mono_basemap_2500mpp_equirectangular.png"></a-sky>
+            <a-text id="title" color="yellow" scale="1.5 1.5 1.5" align="center" width="8" position="-0.9 3 -8" value=""></a-text>
+            <a-text id="text" color="yellow"  width="8" position="-0.9 -1.3 -8" value=""></a-text>
         </a-scene>
+        <script src="presentation.js"></script>
         <!-- 15 slides
             1. Title
             2. Index
